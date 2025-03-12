@@ -23,4 +23,17 @@ contract IsNBitSetTest is Test {
         assertEq(c.main(bytes32(0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd), 1), false);
         assertEq(c.main(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00), 2), false);
     }
+
+    function test_IsNBitSet1() public {
+        assertEq(c.main1(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff), 0), true);
+        assertEq(c.main1(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff), 1), true);
+        assertEq(c.main1(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff), 2), true);
+        assertEq(c.main1(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff), 3), true);
+    }
+
+    function test_IsNBitSet_false1() public {
+        assertEq(c.main1(bytes32(0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe), 0), false);
+        assertEq(c.main1(bytes32(0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd), 1), false);
+        assertEq(c.main1(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00), 2), false);
+    }
 }   

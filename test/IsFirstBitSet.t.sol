@@ -11,10 +11,28 @@ contract IsFirstBitSetTest is Test {
         c = new IsFirstBitSet();
     }
 
+    function test_IsFirstBitSet1() public {
+        assertEq(c.main1(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)), true);
+        assertEq(c.main1(bytes32(0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe)), false);
+        assertEq(c.main1(bytes32(0x0000000000000000000000000000000000000000000000000000000000000000)), false);
+        assertEq(c.main1(bytes32(0x0000000000000000000000000000000000000000000000000000000000000001)), true);
+    }
+
+    function test_IsFirstBitSet2() public {
+        assertEq(c.main2(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)), true);
+        assertEq(c.main2(bytes32(0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe)), false);
+        assertEq(c.main2(bytes32(0x0000000000000000000000000000000000000000000000000000000000000000)), false);
+        assertEq(c.main2(bytes32(0x0000000000000000000000000000000000000000000000000000000000000001)), true);
+    }
+
     function test_IsFirstBitSet() public {
         assertEq(c.main(bytes32(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)), true);
         assertEq(c.main(bytes32(0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe)), false);
         assertEq(c.main(bytes32(0x0000000000000000000000000000000000000000000000000000000000000000)), false);
         assertEq(c.main(bytes32(0x0000000000000000000000000000000000000000000000000000000000000001)), true);
     }
+
+
+
+
 }
