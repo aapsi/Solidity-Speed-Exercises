@@ -8,5 +8,13 @@ contract NinetyNinePercent {
         // example: x = 989, y = 1000, return false
         // example: x = 4499, y = 4545 return false
         // example: x = 32999999999, y = 33333333333 return false
+
+        // x should be atleast 99% of y (x >= 99% of y)
+        // x >= 99 * y / 100
+        // x * 100 >= 99 * y
+
+        return (x * 100)  >= (99 * y);
+
+
     }
-}
+}  
