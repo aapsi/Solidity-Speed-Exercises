@@ -15,6 +15,5 @@ contract NinetyNinePercent {
 
         return (x * 100)  >= (99 * y);
 
-
     }
 }  
