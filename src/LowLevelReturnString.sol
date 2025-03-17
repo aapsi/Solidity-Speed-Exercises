@@ -7,7 +7,11 @@ contract LowLevelReturnString {
         // do not use an interface
         // baz() returns a string. Return the string.
         // However, if baz reverts, return an empty string 
-
+        (bool ok, bytes memory data) = a.call(abi.encodeWithSignature("baz()"));
+        if (!ok) {
+            return "";
+        }
+        return abi.decode(data, (string));
         // bonus challenge: use an interface and a high level call to accomplish the same task
     }
 }
